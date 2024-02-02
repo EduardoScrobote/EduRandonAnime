@@ -3,6 +3,7 @@
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
 import useGetRandomAnime from "./hooks/useGetRandomAnime";
 import Description from "@/components/Description";
+import MoreInfo from "@/components/MoreInfo";
 
 function HomePage() {
   const { data, isLoading, refetch } = useGetRandomAnime();
@@ -43,8 +44,27 @@ function HomePage() {
           </button>
         </div>
         <div className="w-full h-[50%] flex">
-          <div className="bg-yellow-400 w-[50%]">+info</div>
-          <div className="bg-purple-400 w-[50%]">+promovideo</div>
+          <div className="flex flex-col w-[50%]">
+            <div className="flex flex-row gap-4 m-8">
+              <MoreInfo title="Rating" info={data?.data.score} />
+              <MoreInfo title="Release Date" info={data?.data.aired.string} />
+            </div>
+            <div className="flex flex-row gap-4 m-8">
+              <MoreInfo title="Episodes" info={data?.data.episodes} />
+              <MoreInfo title="Source" info={data?.data.source} />
+            </div>
+          </div>
+          <div className="w-[50%] border-2 items-center justify-center flex mb-8 border-slate-300">
+            {!data?.data.trailer.embed_url ? (
+              <p className="text-white">No data avaliable</p>
+            ) : (
+              <iframe
+                width="100%"
+                height="100%"
+                src={data?.data.trailer.embed_url}
+              ></iframe>
+            )}
+          </div>
         </div>
       </div>
       <div className="w-[50%] h-screen">

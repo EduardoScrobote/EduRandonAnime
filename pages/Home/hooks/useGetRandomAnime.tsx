@@ -17,6 +17,17 @@ type AnimeDTO = {
     };
     synopsis?: string | null;
     title: string;
+    score: string;
+    aired: {
+      string: string;
+    };
+    episodes: string;
+    rating: string;
+    source: string;
+    trailer: {
+      url: string;
+      embed_url: string;
+    };
   };
 };
 
