@@ -15,11 +15,13 @@ type AnimeDTO = {
         small_image_url: string;
       };
     };
+    synopsis?: string | null;
+    title: string;
   };
 };
 
 const useGetRandomAnime = (): UseQueryResult<AnimeDTO, unknown> => {
-  return useQuery("anime", () => APIGet<AnimeDTO>("/random/anime"));
+  return useQuery("anime", () => APIGet<AnimeDTO>("/random/anime?sfw"));
 };
 
 export default useGetRandomAnime;

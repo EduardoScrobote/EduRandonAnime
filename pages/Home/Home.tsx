@@ -2,6 +2,7 @@
 
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
 import useGetRandomAnime from "./hooks/useGetRandomAnime";
+import Description from "@/components/Description";
 
 function HomePage() {
   const { data, isLoading, refetch } = useGetRandomAnime();
@@ -46,7 +47,9 @@ function HomePage() {
           <div className="bg-purple-400 w-[50%]">+promovideo</div>
         </div>
       </div>
-      <div className="w-[50%] h-screen bg-blue-200">Description</div>
+      <div className="w-[50%] h-screen">
+        <Description title={data?.data.title} desc={data?.data.synopsis} />
+      </div>
     </div>
   );
 }
