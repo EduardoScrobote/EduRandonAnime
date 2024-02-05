@@ -75,10 +75,3 @@ function HomePage() {
 }
 
 export default HomePage;
-
-{
-  /* <div style={{ backgroundImage: `url("${bgImg}")` }}>
-img+name+button(next / prev)
-<button onClick={() => refetch}>Hey clica</button>
-</div> */
-}
